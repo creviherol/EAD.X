@@ -5119,6 +5119,7 @@ void I2C_Write(uint8_t data) {
 
 
 void LCD_EnablePulse(uint8_t data) {
+
     I2C_Write(data | 0x04);
     _delay((unsigned long)((5)*(8000000UL/4000000.0)));
     I2C_Write(data & ~0x04);
@@ -5126,9 +5127,9 @@ void LCD_EnablePulse(uint8_t data) {
 }
 
 void LCD_SendNibble(uint8_t nibble, uint8_t mode) {
+
     uint8_t data = (nibble & 0xF0) | 0x08;
     if(mode) data |= 0x01;
-
     I2C_Start();
     I2C_Write(0x27 << 1);
     I2C_Write(data);
@@ -5160,8 +5161,9 @@ void LCD_SetCursor(uint8_t linha, uint8_t coluna) {
 }
 
 void LCD_Init(void) {
-    _delay((unsigned long)((20)*(8000000UL/4000.0)));
 
+
+    _delay((unsigned long)((20)*(8000000UL/4000.0)));
     LCD_Command(0x33);
     _delay((unsigned long)((5)*(8000000UL/4000.0)));
     LCD_Command(0x32);
@@ -5191,8 +5193,9 @@ void Ultrasonic_Init(void){
     PIR1bits.CCP1IF = 0;
 }
 
-unsigned int Ultrasonic_Read(void){
-    unsigned int start, end;
+double Ultrasonic_Read(void){
+
+    double start, end;
     unsigned long pulse_time_us;
 
 
@@ -5223,7 +5226,7 @@ unsigned int Ultrasonic_Read(void){
     pulse_time_us = (end - start) * 0.5;
 
 
-    return (unsigned int)(pulse_time_us / 58);
+    return (pulse_time_us / 58);
 }
 # 7 "Prog_EAD.c" 2
 # 1 "./C4.h" 1

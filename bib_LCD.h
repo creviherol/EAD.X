@@ -70,6 +70,7 @@ void I2C_Write(uint8_t data) {
 // LCD via PCF8574
 // ===========================================
 void LCD_EnablePulse(uint8_t data) {
+    //gera o pulso de Enable: escreve com PCF_EN alto, espera ?450?ns, depois limpa o bit e aguarda ?37?µs (tempo típico para latch). 
     I2C_Write(data | PCF_EN);
     __delay_us(5);
     I2C_Write(data & ~PCF_EN);
@@ -77,9 +78,9 @@ void LCD_EnablePulse(uint8_t data) {
 }
 
 void LCD_SendNibble(uint8_t nibble, uint8_t mode) {
+    //prepara o nibble alto (4 bits mais significativos), garante backlight ligado, adiciona RS se mode=1 (dados). Envia START, endereço (modo write), o byte e aciona o pulso.
     uint8_t data = (nibble & 0xF0) | PCF_BACKLIGHT;
     if(mode) data |= PCF_RS;
-
     I2C_Start();
     I2C_Write(LCD_ADDR << 1);  // endereço + WRITE
     I2C_Write(data);
@@ -87,32 +88,33 @@ void LCD_SendNibble(uint8_t nibble, uint8_t mode) {
     I2C_Stop();
 }
 
-void LCD_Command(uint8_t cmd) {
+void LCD_Command(uint8_t cmd) { //envia um comando de 8 bits dividindo em dois nibbles (alto e baixo), conforme protocolo 4-bit do HD44780.
     LCD_SendNibble(cmd & 0xF0, 0);
     LCD_SendNibble((cmd << 4) & 0xF0, 0);
     if(cmd == 0x01) __delay_ms(2);
     else __delay_us(50);
 }
 
-void LCD_Char(char data) {
+void LCD_Char(char data) {  //envia um comando de 8 bits dividindo em dois nibbles (alto e baixo)
     LCD_SendNibble(data & 0xF0, 1);
     LCD_SendNibble((data << 4) & 0xF0, 1);
     __delay_us(50);
 }
 
-void LCD_String(const char *str) {
+void LCD_String(const char *str) {  //envia cada caractere até o terminador nulo (string em C).
     while(*str) LCD_Char(*str++);
 }
 
-void LCD_SetCursor(uint8_t linha, uint8_t coluna) {
+void LCD_SetCursor(uint8_t linha, uint8_t coluna) { //calcula o endereço DDRAM: primeira linha começa em 0x80, segunda em 0xC0; soma coluna-1 e manda como comando.
     uint8_t addr = (linha == 1) ? 0x80 : 0xC0;
     addr += (coluna - 1);
     LCD_Command(addr);
 }
 
 void LCD_Init(void) {
+    //implementa a sequência recomendada para inicializar LCDs em 4 bits: espera >15?ms após power-up, envia 0x33 (reset), 0x32 (seleciona 4 bits), 0x28 (2 linhas, fonte 5x8), 
+    //0x0C (display on, cursor off), 0x06 (incrementa cursor) e 0x01 (clear). Delays garantem que cada comando seja aceito, conforme a rotina típica do datasheet do HD44780.
     __delay_ms(20);
-
     LCD_Command(0x33); // Inicialização
     __delay_ms(5);
     LCD_Command(0x32);

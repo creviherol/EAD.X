@@ -3,7 +3,7 @@
 // ULTRASSÔNICO
 // ===========================================
 #define TRIG LATCbits.LATC7
-#define ECHO PORTCbits.RC2
+#define ECHO PORTCbits.RC2 //referencia o pino RC2 como entrada, usado para ler o retorno do pulso (tempo de voo)
 
 // =========================
 // Implementação Ultrassônico
@@ -24,8 +24,9 @@ void Ultrasonic_Init(void){
     PIR1bits.CCP1IF = 0;
 }
 
-unsigned int Ultrasonic_Read(void){
-    unsigned int start, end;
+double Ultrasonic_Read(void){
+    //Essa abordagem usa o módulo CCP em modo captura para medir com precisão o intervalo do sinal ECHO, enquanto o Timer1 fornece a resolução temporal necessária.
+    double start, end;
     unsigned long pulse_time_us;
 
     // Zera Timer1 e flags
@@ -56,5 +57,5 @@ unsigned int Ultrasonic_Read(void){
     pulse_time_us = (end - start) * 0.5;
     
     // Distância em cm: pulse_time_us / 58
-    return (unsigned int)(pulse_time_us / 58);
+    return (pulse_time_us / 58);
 }
