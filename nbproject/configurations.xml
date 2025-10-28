@@ -18,6 +18,7 @@
       <itemPath>bib_TECLADO.h</itemPath>
       <itemPath>bib_Ultrasonico.h</itemPath>
       <itemPath>C4.h</itemPath>
+      <itemPath>Bib_CONFG_PIC18F4520.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"

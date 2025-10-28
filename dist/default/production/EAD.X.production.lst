@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V3.00 build 20241204225717 
-                                                                                               Mon Oct 27 21:39:52 2025
+                                                                                               Tue Oct 28 00:15:29 2025
 
 Microchip MPLAB XC8 C Compiler v3.00 (Free license) build 20241204225717 Og1 
      1                           	processor	18F4520
@@ -2331,7 +2331,7 @@ Microchip MPLAB XC8 C Compiler v3.00 (Free license) build 20241204225717 Og1
   2316                           
   2317 ;; *************** function _LCD_Init *****************
   2318 ;; Defined at:
-  2319 ;;		line 126 in file "./bib_LCD.h"
+  2319 ;;		line 113 in file "./bib_LCD.h"
   2320 ;; Parameters:    Size  Location     Type
   2321 ;;		None
   2322 ;; Auto vars:     Size  Location     Type
@@ -2365,7 +2365,7 @@ Microchip MPLAB XC8 C Compiler v3.00 (Free license) build 20241204225717 Og1
   2350   0017EA                     _LCD_Init:
   2351                           	callstack 26
   2352   0017EA                     
-  2353                           ;./bib_LCD.h: 127:     _delay((unsigned long)((20)*(8000000UL/4000.0)));
+  2353                           ;./bib_LCD.h: 114:     _delay((unsigned long)((20)*(8000000UL/4000.0)));
   2354   0017EA  0E34               	movlw	52
   2355   0017EC  6E09               	movwf	??_LCD_Init^0,c
   2356   0017EE  0EF2               	movlw	242
@@ -2375,11 +2375,11 @@ Microchip MPLAB XC8 C Compiler v3.00 (Free license) build 20241204225717 Og1
   2360   0017F4  2E09               	decfsz	??_LCD_Init^0,f,c
   2361   0017F6  D7FC               	bra	u2317
   2362   0017F8                     
-  2363                           ;./bib_LCD.h: 129:     LCD_Command(0x33);
+  2363                           ;./bib_LCD.h: 116:     LCD_Command(0x33);
   2364   0017F8  0E33               	movlw	51
   2365   0017FA  EC54  F00C         	call	_LCD_Command
   2366   0017FE                     
-  2367                           ;./bib_LCD.h: 130:     _delay((unsigned long)((5)*(8000000UL/4000.0)));
+  2367                           ;./bib_LCD.h: 117:     _delay((unsigned long)((5)*(8000000UL/4000.0)));
   2368   0017FE  0E0D               	movlw	13
   2369   001800  6E09               	movwf	??_LCD_Init^0,c
   2370   001802  0EFC               	movlw	252
@@ -2389,11 +2389,11 @@ Microchip MPLAB XC8 C Compiler v3.00 (Free license) build 20241204225717 Og1
   2374   001808  2E09               	decfsz	??_LCD_Init^0,f,c
   2375   00180A  D7FC               	bra	u2327
   2376                           
-  2377                           ;./bib_LCD.h: 131:     LCD_Command(0x32);
+  2377                           ;./bib_LCD.h: 118:     LCD_Command(0x32);
   2378   00180C  0E32               	movlw	50
   2379   00180E  EC54  F00C         	call	_LCD_Command
   2380   001812                     
-  2381                           ;./bib_LCD.h: 132:     _delay((unsigned long)((5)*(8000000UL/4000.0)));
+  2381                           ;./bib_LCD.h: 119:     _delay((unsigned long)((5)*(8000000UL/4000.0)));
   2382   001812  0E0D               	movlw	13
   2383   001814  6E09               	movwf	??_LCD_Init^0,c
   2384   001816  0EFC               	movlw	252
@@ -2403,23 +2403,23 @@ Microchip MPLAB XC8 C Compiler v3.00 (Free license) build 20241204225717 Og1
   2388   00181C  2E09               	decfsz	??_LCD_Init^0,f,c
   2389   00181E  D7FC               	bra	u2337
   2390   001820                     
-  2391                           ;./bib_LCD.h: 133:     LCD_Command(0x28);
+  2391                           ;./bib_LCD.h: 120:     LCD_Command(0x28);
   2392   001820  0E28               	movlw	40
   2393   001822  EC54  F00C         	call	_LCD_Command
   2394   001826                     
-  2395                           ;./bib_LCD.h: 134:     LCD_Command(0x0C);
+  2395                           ;./bib_LCD.h: 121:     LCD_Command(0x0C);
   2396   001826  0E0C               	movlw	12
   2397   001828  EC54  F00C         	call	_LCD_Command
   2398   00182C                     
-  2399                           ;./bib_LCD.h: 135:     LCD_Command(0x06);
+  2399                           ;./bib_LCD.h: 122:     LCD_Command(0x06);
   2400   00182C  0E06               	movlw	6
   2401   00182E  EC54  F00C         	call	_LCD_Command
   2402   001832                     
-  2403                           ;./bib_LCD.h: 136:     LCD_Command(0x01);
+  2403                           ;./bib_LCD.h: 123:     LCD_Command(0x01);
   2404   001832  0E01               	movlw	1
   2405   001834  EC54  F00C         	call	_LCD_Command
   2406   001838                     
-  2407                           ;./bib_LCD.h: 137:     _delay((unsigned long)((2)*(8000000UL/4000.0)));
+  2407                           ;./bib_LCD.h: 124:     _delay((unsigned long)((2)*(8000000UL/4000.0)));
   2408   001838  0E06               	movlw	6
   2409   00183A  6E09               	movwf	??_LCD_Init^0,c
   2410   00183C  0E30               	movlw	48
@@ -2435,7 +2435,7 @@ Microchip MPLAB XC8 C Compiler v3.00 (Free license) build 20241204225717 Og1
   2420                           
   2421 ;; *************** function _I2C_Init *****************
   2422 ;; Defined at:
-  2423 ;;		line 57 in file "./bib_LCD.h"
+  2423 ;;		line 38 in file "./bib_LCD.h"
   2424 ;; Parameters:    Size  Location     Type
   2425 ;;		None
   2426 ;; Auto vars:     Size  Location     Type
@@ -2468,24 +2468,24 @@ Microchip MPLAB XC8 C Compiler v3.00 (Free license) build 20241204225717 Og1
   2453   001AB2                     _I2C_Init:
   2454                           	callstack 30
   2455   001AB2                     
-  2456                           ;./bib_LCD.h: 58:     SSPCON1 = 0b00101000;
+  2456                           ;./bib_LCD.h: 41:     SSPCON1 = 0b00101000;
   2457   001AB2  0E28               	movlw	40
   2458   001AB4  6EC6               	movwf	198,c	;volatile
   2459   001AB6                     
-  2460                           ;./bib_LCD.h: 59:     SSPCON2 = 0x00;
+  2460                           ;./bib_LCD.h: 42:     SSPCON2 = 0x00;
   2461   001AB6  6AC5               	clrf	197,c	;volatile
   2462                           
-  2463                           ;./bib_LCD.h: 60:     SSPADD = ((8000000UL / 4) / 100000) - 1;
+  2463                           ;./bib_LCD.h: 43:     SSPADD = ((8000000UL / 4) / 100000) - 1;
   2464   001AB8  0E13               	movlw	19
   2465   001ABA  6EC8               	movwf	200,c	;volatile
   2466   001ABC                     
-  2467                           ;./bib_LCD.h: 61:     SSPSTAT = 0x00;
+  2467                           ;./bib_LCD.h: 44:     SSPSTAT = 0x00;
   2468   001ABC  6AC7               	clrf	199,c	;volatile
   2469   001ABE                     
-  2470                           ;./bib_LCD.h: 62:     TRISC3 = 1;
+  2470                           ;./bib_LCD.h: 45:     TRISC3 = 1;
   2471   001ABE  8694               	bsf	3988,3,c	;volatile
   2472   001AC0                     
-  2473                           ;./bib_LCD.h: 63:     TRISC4 = 1;
+  2473                           ;./bib_LCD.h: 46:     TRISC4 = 1;
   2474   001AC0  8894               	bsf	3988,4,c	;volatile
   2475   001AC2  0012               	return		;funcret
   2476   001AC4                     __end_of_I2C_Init:
@@ -4238,7 +4238,7 @@ Microchip MPLAB XC8 C Compiler v3.00 (Free license) build 20241204225717 Og1
   4194                           
   4195 ;; *************** function _LCD_String *****************
   4196 ;; Defined at:
-  4197 ;;		line 116 in file "./bib_LCD.h"
+  4197 ;;		line 103 in file "./bib_LCD.h"
   4198 ;; Parameters:    Size  Location     Type
   4199 ;;  str             2    7[COMRAM] PTR const unsigned char 
   4200 ;;		 -> texto2(16), texto1(16), STR_3(17), BC4@texto1(16), 
@@ -4275,7 +4275,7 @@ Microchip MPLAB XC8 C Compiler v3.00 (Free license) build 20241204225717 Og1
   4231   00184A                     _LCD_String:
   4232                           	callstack 26
   4233   00184A                     
-  4234                           ;./bib_LCD.h: 117:     while(*str) LCD_Char(*str++);
+  4234                           ;./bib_LCD.h: 104:     while(*str) LCD_Char(*str++);
   4235   00184A  EF3B  F00C         	goto	l1823
   4236   00184E                     l1819:
   4237   00184E  C008  FFF6         	movff	LCD_String@str,tblptrl
@@ -4323,7 +4323,7 @@ Microchip MPLAB XC8 C Compiler v3.00 (Free license) build 20241204225717 Og1
   4279                           
   4280 ;; *************** function _LCD_Char *****************
   4281 ;; Defined at:
-  4282 ;;		line 110 in file "./bib_LCD.h"
+  4282 ;;		line 97 in file "./bib_LCD.h"
   4283 ;; Parameters:    Size  Location     Type
   4284 ;;  data            1    wreg     unsigned char 
   4285 ;; Auto vars:     Size  Location     Type
@@ -4361,14 +4361,14 @@ Microchip MPLAB XC8 C Compiler v3.00 (Free license) build 20241204225717 Og1
   4317                           ;LCD_Char@data stored from wreg
   4318   001A26  6E07               	movwf	LCD_Char@data^0,c
   4319   001A28                     
-  4320                           ;./bib_LCD.h: 111:     LCD_SendNibble(data & 0xF0, 1);
+  4320                           ;./bib_LCD.h: 98:     LCD_SendNibble(data & 0xF0, 1);
   4321   001A28  0E01               	movlw	1
   4322   001A2A  6E04               	movwf	LCD_SendNibble@mode^0,c
   4323   001A2C  5007               	movf	LCD_Char@data^0,w,c
   4324   001A2E  0BF0               	andlw	240
   4325   001A30  EC98  F00C         	call	_LCD_SendNibble
   4326                           
-  4327                           ;./bib_LCD.h: 112:     LCD_SendNibble((data << 4) & 0xF0, 1);
+  4327                           ;./bib_LCD.h: 99:     LCD_SendNibble((data << 4) & 0xF0, 1);
   4328   001A34  0E01               	movlw	1
   4329   001A36  6E04               	movwf	LCD_SendNibble@mode^0,c
   4330   001A38  3807               	swapf	LCD_Char@data^0,w,c
@@ -4376,7 +4376,7 @@ Microchip MPLAB XC8 C Compiler v3.00 (Free license) build 20241204225717 Og1
   4332   001A3C  0BF0               	andlw	240
   4333   001A3E  EC98  F00C         	call	_LCD_SendNibble
   4334   001A42                     
-  4335                           ;./bib_LCD.h: 113:     _delay((unsigned long)((50)*(8000000UL/4000000.0)));
+  4335                           ;./bib_LCD.h: 100:     _delay((unsigned long)((50)*(8000000UL/4000000.0)));
   4336   001A42  0E21               	movlw	33
   4337   001A44                     u2367:
   4338   001A44  2EE8               	decfsz	wreg,f,c
@@ -4388,7 +4388,7 @@ Microchip MPLAB XC8 C Compiler v3.00 (Free license) build 20241204225717 Og1
   4344                           
   4345 ;; *************** function _LCD_SetCursor *****************
   4346 ;; Defined at:
-  4347 ;;		line 120 in file "./bib_LCD.h"
+  4347 ;;		line 107 in file "./bib_LCD.h"
   4348 ;; Parameters:    Size  Location     Type
   4349 ;;  linha           1    wreg     unsigned char 
   4350 ;;  coluna          1    8[COMRAM] unsigned char 
@@ -4430,7 +4430,7 @@ Microchip MPLAB XC8 C Compiler v3.00 (Free license) build 20241204225717 Og1
   4386                           ;LCD_SetCursor@linha stored from wreg
   4387   001968  6E0A               	movwf	LCD_SetCursor@linha^0,c
   4388   00196A                     
-  4389                           ;./bib_LCD.h: 121:     uint8_t addr = (linha == 1) ? 0x80 : 0xC0;
+  4389                           ;./bib_LCD.h: 108:     uint8_t addr = (linha == 1) ? 0x80 : 0xC0;
   4390   00196A  040A               	decf	LCD_SetCursor@linha^0,w,c
   4391   00196C  B4D8               	btfsc	status,2,c
   4392   00196E  EFBB  F00C         	goto	u1721
@@ -4451,11 +4451,11 @@ Microchip MPLAB XC8 C Compiler v3.00 (Free license) build 20241204225717 Og1
   4407   00198E                     l1831:
   4408   00198E  C00B  F00D         	movff	_LCD_SetCursor$612,LCD_SetCursor@addr
   4409   001992                     
-  4410                           ;./bib_LCD.h: 122:     addr += (coluna - 1);
+  4410                           ;./bib_LCD.h: 109:     addr += (coluna - 1);
   4411   001992  0409               	decf	LCD_SetCursor@coluna^0,w,c
   4412   001994  260D               	addwf	LCD_SetCursor@addr^0,f,c
   4413   001996                     
-  4414                           ;./bib_LCD.h: 123:     LCD_Command(addr);
+  4414                           ;./bib_LCD.h: 110:     LCD_Command(addr);
   4415   001996  500D               	movf	LCD_SetCursor@addr^0,w,c
   4416   001998  EC54  F00C         	call	_LCD_Command
   4417   00199C  0012               	return		;funcret
@@ -4464,7 +4464,7 @@ Microchip MPLAB XC8 C Compiler v3.00 (Free license) build 20241204225717 Og1
   4420                           
   4421 ;; *************** function _LCD_Command *****************
   4422 ;; Defined at:
-  4423 ;;		line 103 in file "./bib_LCD.h"
+  4423 ;;		line 90 in file "./bib_LCD.h"
   4424 ;; Parameters:    Size  Location     Type
   4425 ;;  cmd             1    wreg     unsigned char 
   4426 ;; Auto vars:     Size  Location     Type
@@ -4503,14 +4503,14 @@ Microchip MPLAB XC8 C Compiler v3.00 (Free license) build 20241204225717 Og1
   4459                           ;LCD_Command@cmd stored from wreg
   4460   0018A8  6E08               	movwf	LCD_Command@cmd^0,c
   4461   0018AA                     
-  4462                           ;./bib_LCD.h: 104:     LCD_SendNibble(cmd & 0xF0, 0);
+  4462                           ;./bib_LCD.h: 91:     LCD_SendNibble(cmd & 0xF0, 0);
   4463   0018AA  0E00               	movlw	0
   4464   0018AC  6E04               	movwf	LCD_SendNibble@mode^0,c
   4465   0018AE  5008               	movf	LCD_Command@cmd^0,w,c
   4466   0018B0  0BF0               	andlw	240
   4467   0018B2  EC98  F00C         	call	_LCD_SendNibble
   4468                           
-  4469                           ;./bib_LCD.h: 105:     LCD_SendNibble((cmd << 4) & 0xF0, 0);
+  4469                           ;./bib_LCD.h: 92:     LCD_SendNibble((cmd << 4) & 0xF0, 0);
   4470   0018B6  0E00               	movlw	0
   4471   0018B8  6E04               	movwf	LCD_SendNibble@mode^0,c
   4472   0018BA  3808               	swapf	LCD_Command@cmd^0,w,c
@@ -4518,7 +4518,7 @@ Microchip MPLAB XC8 C Compiler v3.00 (Free license) build 20241204225717 Og1
   4474   0018BE  0BF0               	andlw	240
   4475   0018C0  EC98  F00C         	call	_LCD_SendNibble
   4476   0018C4                     
-  4477                           ;./bib_LCD.h: 106:     if(cmd == 0x01) _delay((unsigned long)((2)*(8000000UL/4000.0)));
+  4477                           ;./bib_LCD.h: 93:     if(cmd == 0x01) _delay((unsigned long)((2)*(8000000UL/4000.0)));
   4478   0018C4  0408               	decf	LCD_Command@cmd^0,w,c
   4479   0018C6  A4D8               	btfss	status,2,c
   4480   0018C8  EF68  F00C         	goto	u1351
@@ -4549,7 +4549,7 @@ Microchip MPLAB XC8 C Compiler v3.00 (Free license) build 20241204225717 Og1
   4505                           
   4506 ;; *************** function _LCD_SendNibble *****************
   4507 ;; Defined at:
-  4508 ;;		line 92 in file "./bib_LCD.h"
+  4508 ;;		line 79 in file "./bib_LCD.h"
   4509 ;; Parameters:    Size  Location     Type
   4510 ;;  nibble          1    wreg     unsigned char 
   4511 ;;  mode            1    3[COMRAM] unsigned char 
@@ -4593,13 +4593,13 @@ Microchip MPLAB XC8 C Compiler v3.00 (Free license) build 20241204225717 Og1
   4549                           ;LCD_SendNibble@nibble stored from wreg
   4550   001930  6E05               	movwf	LCD_SendNibble@nibble^0,c
   4551   001932                     
-  4552                           ;./bib_LCD.h: 93:     uint8_t data = (nibble & 0xF0) | 0x08;
+  4552                           ;./bib_LCD.h: 80:     uint8_t data = (nibble & 0xF0) | 0x08;
   4553   001932  5005               	movf	LCD_SendNibble@nibble^0,w,c
   4554   001934  0BF0               	andlw	240
   4555   001936  0908               	iorlw	8
   4556   001938  6E06               	movwf	LCD_SendNibble@data^0,c
   4557   00193A                     
-  4558                           ;./bib_LCD.h: 94:     if(mode) data |= 0x01;
+  4558                           ;./bib_LCD.h: 81:     if(mode) data |= 0x01;
   4559   00193A  5004               	movf	LCD_SendNibble@mode^0,w,c
   4560   00193C  B4D8               	btfsc	status,2,c
   4561   00193E  EFA3  F00C         	goto	u1291
@@ -4610,22 +4610,22 @@ Microchip MPLAB XC8 C Compiler v3.00 (Free license) build 20241204225717 Og1
   4566   00194A  8006               	bsf	LCD_SendNibble@data^0,0,c
   4567   00194C                     l1705:
   4568                           
-  4569                           ;./bib_LCD.h: 96:     I2C_Start();
+  4569                           ;./bib_LCD.h: 83:     I2C_Start();
   4570   00194C  EC6B  F00D         	call	_I2C_Start	;wreg free
   4571   001950                     
-  4572                           ;./bib_LCD.h: 97:     I2C_Write(0x27 << 1);
+  4572                           ;./bib_LCD.h: 84:     I2C_Write(0x27 << 1);
   4573   001950  0E4E               	movlw	78
   4574   001952  ECE9  F00C         	call	_I2C_Write
   4575   001956                     
-  4576                           ;./bib_LCD.h: 98:     I2C_Write(data);
+  4576                           ;./bib_LCD.h: 85:     I2C_Write(data);
   4577   001956  5006               	movf	LCD_SendNibble@data^0,w,c
   4578   001958  ECE9  F00C         	call	_I2C_Write
   4579   00195C                     
-  4580                           ;./bib_LCD.h: 99:     LCD_EnablePulse(data);
+  4580                           ;./bib_LCD.h: 86:     LCD_EnablePulse(data);
   4581   00195C  5006               	movf	LCD_SendNibble@data^0,w,c
   4582   00195E  EC26  F00D         	call	_LCD_EnablePulse
   4583   001962                     
-  4584                           ;./bib_LCD.h: 100:     I2C_Stop();
+  4584                           ;./bib_LCD.h: 87:     I2C_Stop();
   4585   001962  EC62  F00D         	call	_I2C_Stop	;wreg free
   4586   001966  0012               	return		;funcret
   4587   001968                     __end_of_LCD_SendNibble:
@@ -4633,7 +4633,7 @@ Microchip MPLAB XC8 C Compiler v3.00 (Free license) build 20241204225717 Og1
   4589                           
   4590 ;; *************** function _LCD_EnablePulse *****************
   4591 ;; Defined at:
-  4592 ;;		line 85 in file "./bib_LCD.h"
+  4592 ;;		line 72 in file "./bib_LCD.h"
   4593 ;; Parameters:    Size  Location     Type
   4594 ;;  data            1    wreg     unsigned char 
   4595 ;; Auto vars:     Size  Location     Type
@@ -4671,24 +4671,24 @@ Microchip MPLAB XC8 C Compiler v3.00 (Free license) build 20241204225717 Og1
   4627                           ;LCD_EnablePulse@data stored from wreg
   4628   001A4C  6E03               	movwf	LCD_EnablePulse@data^0,c
   4629   001A4E                     
-  4630                           ;./bib_LCD.h: 86:     I2C_Write(data | 0x04);
+  4630                           ;./bib_LCD.h: 73:     I2C_Write(data | 0x04);
   4631   001A4E  5003               	movf	LCD_EnablePulse@data^0,w,c
   4632   001A50  0904               	iorlw	4
   4633   001A52  ECE9  F00C         	call	_I2C_Write
   4634   001A56                     
-  4635                           ;./bib_LCD.h: 87:     _delay((unsigned long)((5)*(8000000UL/4000000.0)));
+  4635                           ;./bib_LCD.h: 74:     _delay((unsigned long)((5)*(8000000UL/4000000.0)));
   4636   001A56  0E03               	movlw	3
   4637   001A58                     u2397:
   4638   001A58  2EE8               	decfsz	wreg,f,c
   4639   001A5A  D7FE               	bra	u2397
   4640   001A5C  0000               	nop	
   4641   001A5E                     
-  4642                           ;./bib_LCD.h: 88:     I2C_Write(data & ~0x04);
+  4642                           ;./bib_LCD.h: 75:     I2C_Write(data & ~0x04);
   4643   001A5E  5003               	movf	LCD_EnablePulse@data^0,w,c
   4644   001A60  0BFB               	andlw	251
   4645   001A62  ECE9  F00C         	call	_I2C_Write
   4646                           
-  4647                           ;./bib_LCD.h: 89:     _delay((unsigned long)((50)*(8000000UL/4000000.0)));
+  4647                           ;./bib_LCD.h: 76:     _delay((unsigned long)((50)*(8000000UL/4000000.0)));
   4648   001A66  0E21               	movlw	33
   4649   001A68                     u2407:
   4650   001A68  2EE8               	decfsz	wreg,f,c
@@ -4700,7 +4700,7 @@ Microchip MPLAB XC8 C Compiler v3.00 (Free license) build 20241204225717 Og1
   4656                           
   4657 ;; *************** function _I2C_Write *****************
   4658 ;; Defined at:
-  4659 ;;		line 76 in file "./bib_LCD.h"
+  4659 ;;		line 60 in file "./bib_LCD.h"
   4660 ;; Parameters:    Size  Location     Type
   4661 ;;  data            1    wreg     unsigned char 
   4662 ;; Auto vars:     Size  Location     Type
@@ -4738,7 +4738,7 @@ Microchip MPLAB XC8 C Compiler v3.00 (Free license) build 20241204225717 Og1
   4694                           ;I2C_Write@data stored from wreg
   4695   0019D2  6E02               	movwf	I2C_Write@data^0,c
   4696   0019D4                     
-  4697                           ;./bib_LCD.h: 77:     SSPBUF = data;
+  4697                           ;./bib_LCD.h: 63:     SSPBUF = data;
   4698   0019D4  C002  FFC9         	movff	I2C_Write@data,4041	;volatile
   4699   0019D8                     l137:
   4700   0019D8  B0C7               	btfsc	199,0,c	;volatile
@@ -4763,7 +4763,7 @@ Microchip MPLAB XC8 C Compiler v3.00 (Free license) build 20241204225717 Og1
   4719                           
   4720 ;; *************** function _I2C_Stop *****************
   4721 ;; Defined at:
-  4722 ;;		line 71 in file "./bib_LCD.h"
+  4722 ;;		line 55 in file "./bib_LCD.h"
   4723 ;; Parameters:    Size  Location     Type
   4724 ;;		None
   4725 ;; Auto vars:     Size  Location     Type
@@ -4796,7 +4796,7 @@ Microchip MPLAB XC8 C Compiler v3.00 (Free license) build 20241204225717 Og1
   4752   001AC4                     _I2C_Stop:
   4753                           	callstack 27
   4754   001AC4                     
-  4755                           ;./bib_LCD.h: 72:     SSPCON2bits.PEN = 1;
+  4755                           ;./bib_LCD.h: 56:     SSPCON2bits.PEN = 1;
   4756   001AC4  84C5               	bsf	197,2,c	;volatile
   4757   001AC6                     l131:
   4758   001AC6  B4C5               	btfsc	197,2,c	;volatile
@@ -4811,7 +4811,7 @@ Microchip MPLAB XC8 C Compiler v3.00 (Free license) build 20241204225717 Og1
   4767                           
   4768 ;; *************** function _I2C_Start *****************
   4769 ;; Defined at:
-  4770 ;;		line 66 in file "./bib_LCD.h"
+  4770 ;;		line 50 in file "./bib_LCD.h"
   4771 ;; Parameters:    Size  Location     Type
   4772 ;;		None
   4773 ;; Auto vars:     Size  Location     Type
@@ -4844,7 +4844,7 @@ Microchip MPLAB XC8 C Compiler v3.00 (Free license) build 20241204225717 Og1
   4800   001AD6                     _I2C_Start:
   4801                           	callstack 27
   4802   001AD6                     
-  4803                           ;./bib_LCD.h: 67:     SSPCON2bits.SEN = 1;
+  4803                           ;./bib_LCD.h: 51:     SSPCON2bits.SEN = 1;
   4804   001AD6  80C5               	bsf	197,0,c	;volatile
   4805   001AD8                     l125:
   4806   001AD8  B0C5               	btfsc	197,0,c	;volatile
@@ -5397,7 +5397,7 @@ DATA                 0      0     155      0.0%
 
 
 Microchip Technology PIC18 Macro Assembler V3.00 build 20241204225717 
-Symbol Table                                                                                   Mon Oct 27 21:39:52 2025
+Symbol Table                                                                                   Tue Oct 28 00:15:29 2025
 
                            _P 0059                             _T 0051                             _U 0053  
 Ultrasonic_Read@pulse_time_us 0036                  ?_LCD_Command 0001                   _SSPSTATbits 0FC7  

@@ -1,11 +1,11 @@
 #include <xc.h>
 #include <stdint.h>
 #include <stdio.h>
-#include <math.h>
 #include "bib_TECLADO.h"
 #include "bib_LCD.h"
 #include "bib_Ultrasonico.h"
 #include "C4.h"
+#include "Bib_CONFG_PIC18F4520.h"
 
 
 int P=0,P1,P2,U = 0,T = 0;

@@ -1023,321 +1023,321 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;./bib_TECLADO.h: 107: }
 [e :UE 305 ]
 }
-"4 ./bib_LCD.h
-[p x OSC  =  HS ]
+"4 ./Bib_CONFG_PIC18F4520.h
+[p x OSC  =  HS      ]
 "5
-[p x WDT  =  OFF ]
+[p x WDT  =  OFF     ]
 "6
-[p x PWRT  =  ON ]
+[p x PWRT  =  ON     ]
 "7
-[p x BOREN  =  ON ]
+[p x BOREN  =  ON    ]
 "8
-[p x LVP  =  OFF ]
+[p x LVP  =  OFF     ]
 "9
-[p x PBADEN  =  OFF ]
+[p x PBADEN  =  OFF  ]
 "10
-[p x MCLRE  =  ON ]
+[p x MCLRE  =  ON    ]
 "11
-[p x DEBUG  =  OFF ]
+[p x DEBUG  =  OFF   ]
 "12
-[p x STVREN  =  ON ]
-"13
-[p x WRT0  =  OFF ]
-"14
-[p x WRT1  =  OFF ]
-"15
-[p x WRT2  =  OFF ]
-"16
-[p x WRT3  =  OFF ]
-"17
-[p x CP0  =  OFF ]
+[p x STVREN  =  ON   ]
 "18
-[p x CP1  =  OFF ]
+[p x WRT0  =  OFF    ]
 "19
-[p x CP2  =  OFF ]
+[p x WRT1  =  OFF ]
 "20
+[p x WRT2  =  OFF ]
+"21
+[p x WRT3  =  OFF ]
+"22
+[p x CP0  =  OFF ]
+"23
+[p x CP1  =  OFF ]
+"24
+[p x CP2  =  OFF ]
+"25
 [p x CP3  =  OFF ]
-"57
-[; ;./bib_LCD.h: 57: void I2C_Init(void) {
+"38 ./bib_LCD.h
+[; ;./bib_LCD.h: 38: void I2C_Init(void) {
 [v _I2C_Init `(v ~T0 @X0 1 ef ]
 {
 [e :U _I2C_Init ]
 [f ]
-"58
-[; ;./bib_LCD.h: 58:     SSPCON1 = 0b00101000;
+"41
+[; ;./bib_LCD.h: 41:     SSPCON1 = 0b00101000;
 [e = _SSPCON1 -> -> 40 `i `uc ]
-"59
-[; ;./bib_LCD.h: 59:     SSPCON2 = 0x00;
+"42
+[; ;./bib_LCD.h: 42:     SSPCON2 = 0x00;
 [e = _SSPCON2 -> -> 0 `i `uc ]
-"60
-[; ;./bib_LCD.h: 60:     SSPADD = ((8000000UL / 4) / 100000) - 1;
+"43
+[; ;./bib_LCD.h: 43:     SSPADD = ((8000000UL / 4) / 100000) - 1;
 [e = _SSPADD -> - / / -> 8000000 `ul -> -> -> 4 `i `l `ul -> -> 100000 `l `ul -> -> -> 1 `i `l `ul `uc ]
-"61
-[; ;./bib_LCD.h: 61:     SSPSTAT = 0x00;
+"44
+[; ;./bib_LCD.h: 44:     SSPSTAT = 0x00;
 [e = _SSPSTAT -> -> 0 `i `uc ]
-"62
-[; ;./bib_LCD.h: 62:     TRISC3 = 1;
+"45
+[; ;./bib_LCD.h: 45:     TRISC3 = 1;
 [e = _TRISC3 -> -> 1 `i `b ]
-"63
-[; ;./bib_LCD.h: 63:     TRISC4 = 1;
+"46
+[; ;./bib_LCD.h: 46:     TRISC4 = 1;
 [e = _TRISC4 -> -> 1 `i `b ]
-"64
-[; ;./bib_LCD.h: 64: }
+"48
+[; ;./bib_LCD.h: 48: }
 [e :UE 370 ]
 }
-"66
-[; ;./bib_LCD.h: 66: void I2C_Start(void) {
+"50
+[; ;./bib_LCD.h: 50: void I2C_Start(void) {
 [v _I2C_Start `(v ~T0 @X0 1 ef ]
 {
 [e :U _I2C_Start ]
 [f ]
-"67
-[; ;./bib_LCD.h: 67:     SSPCON2bits.SEN = 1;
+"51
+[; ;./bib_LCD.h: 51:     SSPCON2bits.SEN = 1;
 [e = . . _SSPCON2bits 0 0 -> -> 1 `i `uc ]
-"68
-[; ;./bib_LCD.h: 68:     while(SSPCON2bits.SEN);
+"52
+[; ;./bib_LCD.h: 52:     while(SSPCON2bits.SEN);
 [e $U 372  ]
 [e :U 373 ]
 [e :U 372 ]
 [e $ != -> . . _SSPCON2bits 0 0 `i -> 0 `i 373  ]
 [e :U 374 ]
-"69
-[; ;./bib_LCD.h: 69: }
+"53
+[; ;./bib_LCD.h: 53: }
 [e :UE 371 ]
 }
-"71
-[; ;./bib_LCD.h: 71: void I2C_Stop(void) {
+"55
+[; ;./bib_LCD.h: 55: void I2C_Stop(void) {
 [v _I2C_Stop `(v ~T0 @X0 1 ef ]
 {
 [e :U _I2C_Stop ]
 [f ]
-"72
-[; ;./bib_LCD.h: 72:     SSPCON2bits.PEN = 1;
+"56
+[; ;./bib_LCD.h: 56:     SSPCON2bits.PEN = 1;
 [e = . . _SSPCON2bits 0 2 -> -> 1 `i `uc ]
-"73
-[; ;./bib_LCD.h: 73:     while(SSPCON2bits.PEN);
+"57
+[; ;./bib_LCD.h: 57:     while(SSPCON2bits.PEN);
 [e $U 376  ]
 [e :U 377 ]
 [e :U 376 ]
 [e $ != -> . . _SSPCON2bits 0 2 `i -> 0 `i 377  ]
 [e :U 378 ]
-"74
-[; ;./bib_LCD.h: 74: }
+"58
+[; ;./bib_LCD.h: 58: }
 [e :UE 375 ]
 }
-"76
-[; ;./bib_LCD.h: 76: void I2C_Write(uint8_t data) {
+"60
+[; ;./bib_LCD.h: 60: void I2C_Write(uint8_t data) {
 [v _I2C_Write `(v ~T0 @X0 1 ef1`uc ]
 {
 [e :U _I2C_Write ]
 [v _data `uc ~T0 @X0 1 r1 ]
 [f ]
-"77
-[; ;./bib_LCD.h: 77:     SSPBUF = data;
+"63
+[; ;./bib_LCD.h: 63:     SSPBUF = data;
 [e = _SSPBUF _data ]
-"78
-[; ;./bib_LCD.h: 78:     while(SSPSTATbits.BF);
+"64
+[; ;./bib_LCD.h: 64:     while(SSPSTATbits.BF);
 [e $U 380  ]
 [e :U 381 ]
 [e :U 380 ]
 [e $ != -> . . _SSPSTATbits 2 0 `i -> 0 `i 381  ]
 [e :U 382 ]
-"79
-[; ;./bib_LCD.h: 79:     while(SSPCON2 & 0x1F);
+"65
+[; ;./bib_LCD.h: 65:     while(SSPCON2 & 0x1F);
 [e $U 383  ]
 [e :U 384 ]
 [e :U 383 ]
 [e $ != & -> _SSPCON2 `i -> 31 `i -> 0 `i 384  ]
 [e :U 385 ]
-"80
-[; ;./bib_LCD.h: 80: }
+"66
+[; ;./bib_LCD.h: 66: }
 [e :UE 379 ]
 }
-"85
-[; ;./bib_LCD.h: 85: void LCD_EnablePulse(uint8_t data) {
+"72
+[; ;./bib_LCD.h: 72: void LCD_EnablePulse(uint8_t data) {
 [v _LCD_EnablePulse `(v ~T0 @X0 1 ef1`uc ]
 {
 [e :U _LCD_EnablePulse ]
 [v _data `uc ~T0 @X0 1 r1 ]
 [f ]
-"86
-[; ;./bib_LCD.h: 86:     I2C_Write(data | 0x04);
+"73
+[; ;./bib_LCD.h: 73:     I2C_Write(data | 0x04);
 [e ( _I2C_Write (1 -> | -> _data `i -> 4 `i `uc ]
-"87
-[; ;./bib_LCD.h: 87:     _delay((unsigned long)((5)*(8000000UL/4000000.0)));
+"74
+[; ;./bib_LCD.h: 74:     _delay((unsigned long)((5)*(8000000UL/4000000.0)));
 [e ( __delay (1 -> * -> -> 5 `i `d / -> -> 8000000 `ul `d .4000000.0 `ul ]
-"88
-[; ;./bib_LCD.h: 88:     I2C_Write(data & ~0x04);
+"75
+[; ;./bib_LCD.h: 75:     I2C_Write(data & ~0x04);
 [e ( _I2C_Write (1 -> & -> _data `i ~ -> 4 `i `uc ]
-"89
-[; ;./bib_LCD.h: 89:     _delay((unsigned long)((50)*(8000000UL/4000000.0)));
+"76
+[; ;./bib_LCD.h: 76:     _delay((unsigned long)((50)*(8000000UL/4000000.0)));
 [e ( __delay (1 -> * -> -> 50 `i `d / -> -> 8000000 `ul `d .4000000.0 `ul ]
-"90
-[; ;./bib_LCD.h: 90: }
+"77
+[; ;./bib_LCD.h: 77: }
 [e :UE 386 ]
 }
-"92
-[; ;./bib_LCD.h: 92: void LCD_SendNibble(uint8_t nibble, uint8_t mode) {
+"79
+[; ;./bib_LCD.h: 79: void LCD_SendNibble(uint8_t nibble, uint8_t mode) {
 [v _LCD_SendNibble `(v ~T0 @X0 1 ef2`uc`uc ]
 {
 [e :U _LCD_SendNibble ]
 [v _nibble `uc ~T0 @X0 1 r1 ]
 [v _mode `uc ~T0 @X0 1 r2 ]
 [f ]
-"93
-[; ;./bib_LCD.h: 93:     uint8_t data = (nibble & 0xF0) | 0x08;
+"80
+[; ;./bib_LCD.h: 80:     uint8_t data = (nibble & 0xF0) | 0x08;
 [v _data `uc ~T0 @X0 1 a ]
 [e = _data -> | & -> _nibble `i -> 240 `i -> 8 `i `uc ]
-"94
-[; ;./bib_LCD.h: 94:     if(mode) data |= 0x01;
+"81
+[; ;./bib_LCD.h: 81:     if(mode) data |= 0x01;
 [e $ ! != -> _mode `i -> 0 `i 388  ]
 [e =| _data -> -> 1 `i `uc ]
 [e :U 388 ]
-"96
-[; ;./bib_LCD.h: 96:     I2C_Start();
+"83
+[; ;./bib_LCD.h: 83:     I2C_Start();
 [e ( _I2C_Start ..  ]
-"97
-[; ;./bib_LCD.h: 97:     I2C_Write(0x27 << 1);
+"84
+[; ;./bib_LCD.h: 84:     I2C_Write(0x27 << 1);
 [e ( _I2C_Write (1 -> << -> 39 `i -> 1 `i `uc ]
-"98
-[; ;./bib_LCD.h: 98:     I2C_Write(data);
+"85
+[; ;./bib_LCD.h: 85:     I2C_Write(data);
 [e ( _I2C_Write (1 _data ]
-"99
-[; ;./bib_LCD.h: 99:     LCD_EnablePulse(data);
+"86
+[; ;./bib_LCD.h: 86:     LCD_EnablePulse(data);
 [e ( _LCD_EnablePulse (1 _data ]
-"100
-[; ;./bib_LCD.h: 100:     I2C_Stop();
+"87
+[; ;./bib_LCD.h: 87:     I2C_Stop();
 [e ( _I2C_Stop ..  ]
-"101
-[; ;./bib_LCD.h: 101: }
+"88
+[; ;./bib_LCD.h: 88: }
 [e :UE 387 ]
 }
-"103
-[; ;./bib_LCD.h: 103: void LCD_Command(uint8_t cmd) {
+"90
+[; ;./bib_LCD.h: 90: void LCD_Command(uint8_t cmd) {
 [v _LCD_Command `(v ~T0 @X0 1 ef1`uc ]
 {
 [e :U _LCD_Command ]
 [v _cmd `uc ~T0 @X0 1 r1 ]
 [f ]
-"104
-[; ;./bib_LCD.h: 104:     LCD_SendNibble(cmd & 0xF0, 0);
+"91
+[; ;./bib_LCD.h: 91:     LCD_SendNibble(cmd & 0xF0, 0);
 [e ( _LCD_SendNibble (2 , -> & -> _cmd `i -> 240 `i `uc -> -> 0 `i `uc ]
-"105
-[; ;./bib_LCD.h: 105:     LCD_SendNibble((cmd << 4) & 0xF0, 0);
+"92
+[; ;./bib_LCD.h: 92:     LCD_SendNibble((cmd << 4) & 0xF0, 0);
 [e ( _LCD_SendNibble (2 , -> & << -> _cmd `i -> 4 `i -> 240 `i `uc -> -> 0 `i `uc ]
-"106
-[; ;./bib_LCD.h: 106:     if(cmd == 0x01) _delay((unsigned long)((2)*(8000000UL/4000.0)));
+"93
+[; ;./bib_LCD.h: 93:     if(cmd == 0x01) _delay((unsigned long)((2)*(8000000UL/4000.0)));
 [e $ ! == -> _cmd `i -> 1 `i 390  ]
 [e ( __delay (1 -> * -> -> 2 `i `d / -> -> 8000000 `ul `d .4000.0 `ul ]
 [e $U 391  ]
-"107
-[; ;./bib_LCD.h: 107:     else _delay((unsigned long)((50)*(8000000UL/4000000.0)));
+"94
+[; ;./bib_LCD.h: 94:     else _delay((unsigned long)((50)*(8000000UL/4000000.0)));
 [e :U 390 ]
 [e ( __delay (1 -> * -> -> 50 `i `d / -> -> 8000000 `ul `d .4000000.0 `ul ]
 [e :U 391 ]
-"108
-[; ;./bib_LCD.h: 108: }
+"95
+[; ;./bib_LCD.h: 95: }
 [e :UE 389 ]
 }
-"110
-[; ;./bib_LCD.h: 110: void LCD_Char(char data) {
+"97
+[; ;./bib_LCD.h: 97: void LCD_Char(char data) {
 [v _LCD_Char `(v ~T0 @X0 1 ef1`uc ]
 {
 [e :U _LCD_Char ]
 [v _data `uc ~T0 @X0 1 r1 ]
 [f ]
-"111
-[; ;./bib_LCD.h: 111:     LCD_SendNibble(data & 0xF0, 1);
+"98
+[; ;./bib_LCD.h: 98:     LCD_SendNibble(data & 0xF0, 1);
 [e ( _LCD_SendNibble (2 , -> & -> _data `i -> 240 `i `uc -> -> 1 `i `uc ]
-"112
-[; ;./bib_LCD.h: 112:     LCD_SendNibble((data << 4) & 0xF0, 1);
+"99
+[; ;./bib_LCD.h: 99:     LCD_SendNibble((data << 4) & 0xF0, 1);
 [e ( _LCD_SendNibble (2 , -> & << -> _data `i -> 4 `i -> 240 `i `uc -> -> 1 `i `uc ]
-"113
-[; ;./bib_LCD.h: 113:     _delay((unsigned long)((50)*(8000000UL/4000000.0)));
+"100
+[; ;./bib_LCD.h: 100:     _delay((unsigned long)((50)*(8000000UL/4000000.0)));
 [e ( __delay (1 -> * -> -> 50 `i `d / -> -> 8000000 `ul `d .4000000.0 `ul ]
-"114
-[; ;./bib_LCD.h: 114: }
+"101
+[; ;./bib_LCD.h: 101: }
 [e :UE 392 ]
 }
-"116
-[; ;./bib_LCD.h: 116: void LCD_String(const char *str) {
+"103
+[; ;./bib_LCD.h: 103: void LCD_String(const char *str) {
 [v _LCD_String `(v ~T0 @X0 1 ef1`*Cuc ]
 {
 [e :U _LCD_String ]
 [v _str `*Cuc ~T0 @X0 1 r1 ]
 [f ]
-"117
-[; ;./bib_LCD.h: 117:     while(*str) LCD_Char(*str++);
+"104
+[; ;./bib_LCD.h: 104:     while(*str) LCD_Char(*str++);
 [e $U 394  ]
 [e :U 395 ]
 [e ( _LCD_Char (1 *U ++ _str * -> -> 1 `i `x -> -> # *U _str `i `x ]
 [e :U 394 ]
 [e $ != -> *U _str `i -> 0 `i 395  ]
 [e :U 396 ]
-"118
-[; ;./bib_LCD.h: 118: }
+"105
+[; ;./bib_LCD.h: 105: }
 [e :UE 393 ]
 }
-"120
-[; ;./bib_LCD.h: 120: void LCD_SetCursor(uint8_t linha, uint8_t coluna) {
+"107
+[; ;./bib_LCD.h: 107: void LCD_SetCursor(uint8_t linha, uint8_t coluna) {
 [v _LCD_SetCursor `(v ~T0 @X0 1 ef2`uc`uc ]
 {
 [e :U _LCD_SetCursor ]
 [v _linha `uc ~T0 @X0 1 r1 ]
 [v _coluna `uc ~T0 @X0 1 r2 ]
 [f ]
-"121
-[; ;./bib_LCD.h: 121:     uint8_t addr = (linha == 1) ? 0x80 : 0xC0;
+"108
+[; ;./bib_LCD.h: 108:     uint8_t addr = (linha == 1) ? 0x80 : 0xC0;
 [v _addr `uc ~T0 @X0 1 a ]
 [e = _addr -> ? == -> _linha `i -> 1 `i : -> 128 `i -> 192 `i `uc ]
-"122
-[; ;./bib_LCD.h: 122:     addr += (coluna - 1);
+"109
+[; ;./bib_LCD.h: 109:     addr += (coluna - 1);
 [e =+ _addr -> - -> _coluna `i -> 1 `i `uc ]
-"123
-[; ;./bib_LCD.h: 123:     LCD_Command(addr);
+"110
+[; ;./bib_LCD.h: 110:     LCD_Command(addr);
 [e ( _LCD_Command (1 _addr ]
-"124
-[; ;./bib_LCD.h: 124: }
+"111
+[; ;./bib_LCD.h: 111: }
 [e :UE 397 ]
 }
-"126
-[; ;./bib_LCD.h: 126: void LCD_Init(void) {
+"113
+[; ;./bib_LCD.h: 113: void LCD_Init(void) {
 [v _LCD_Init `(v ~T0 @X0 1 ef ]
 {
 [e :U _LCD_Init ]
 [f ]
-"127
-[; ;./bib_LCD.h: 127:     _delay((unsigned long)((20)*(8000000UL/4000.0)));
+"114
+[; ;./bib_LCD.h: 114:     _delay((unsigned long)((20)*(8000000UL/4000.0)));
 [e ( __delay (1 -> * -> -> 20 `i `d / -> -> 8000000 `ul `d .4000.0 `ul ]
-"129
-[; ;./bib_LCD.h: 129:     LCD_Command(0x33);
+"116
+[; ;./bib_LCD.h: 116:     LCD_Command(0x33);
 [e ( _LCD_Command (1 -> -> 51 `i `uc ]
-"130
-[; ;./bib_LCD.h: 130:     _delay((unsigned long)((5)*(8000000UL/4000.0)));
+"117
+[; ;./bib_LCD.h: 117:     _delay((unsigned long)((5)*(8000000UL/4000.0)));
 [e ( __delay (1 -> * -> -> 5 `i `d / -> -> 8000000 `ul `d .4000.0 `ul ]
-"131
-[; ;./bib_LCD.h: 131:     LCD_Command(0x32);
+"118
+[; ;./bib_LCD.h: 118:     LCD_Command(0x32);
 [e ( _LCD_Command (1 -> -> 50 `i `uc ]
-"132
-[; ;./bib_LCD.h: 132:     _delay((unsigned long)((5)*(8000000UL/4000.0)));
+"119
+[; ;./bib_LCD.h: 119:     _delay((unsigned long)((5)*(8000000UL/4000.0)));
 [e ( __delay (1 -> * -> -> 5 `i `d / -> -> 8000000 `ul `d .4000.0 `ul ]
-"133
-[; ;./bib_LCD.h: 133:     LCD_Command(0x28);
+"120
+[; ;./bib_LCD.h: 120:     LCD_Command(0x28);
 [e ( _LCD_Command (1 -> -> 40 `i `uc ]
-"134
-[; ;./bib_LCD.h: 134:     LCD_Command(0x0C);
+"121
+[; ;./bib_LCD.h: 121:     LCD_Command(0x0C);
 [e ( _LCD_Command (1 -> -> 12 `i `uc ]
-"135
-[; ;./bib_LCD.h: 135:     LCD_Command(0x06);
+"122
+[; ;./bib_LCD.h: 122:     LCD_Command(0x06);
 [e ( _LCD_Command (1 -> -> 6 `i `uc ]
-"136
-[; ;./bib_LCD.h: 136:     LCD_Command(0x01);
+"123
+[; ;./bib_LCD.h: 123:     LCD_Command(0x01);
 [e ( _LCD_Command (1 -> -> 1 `i `uc ]
-"137
-[; ;./bib_LCD.h: 137:     _delay((unsigned long)((2)*(8000000UL/4000.0)));
+"124
+[; ;./bib_LCD.h: 124:     _delay((unsigned long)((2)*(8000000UL/4000.0)));
 [e ( __delay (1 -> * -> -> 2 `i `d / -> -> 8000000 `ul `d .4000.0 `ul ]
-"138
-[; ;./bib_LCD.h: 138: }
+"125
+[; ;./bib_LCD.h: 125: }
 [e :UE 398 ]
 }
 "11 ./bib_Ultrasonico.h
@@ -1577,6 +1577,40 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;./C4.h: 38: }
 [e :UE 407 ]
 }
+"4 ./Bib_CONFG_PIC18F4520.h
+[p x OSC  =  HS      ]
+"5
+[p x WDT  =  OFF     ]
+"6
+[p x PWRT  =  ON     ]
+"7
+[p x BOREN  =  ON    ]
+"8
+[p x LVP  =  OFF     ]
+"9
+[p x PBADEN  =  OFF  ]
+"10
+[p x MCLRE  =  ON    ]
+"11
+[p x DEBUG  =  OFF   ]
+"12
+[p x STVREN  =  ON   ]
+"18
+[p x WRT0  =  OFF    ]
+"19
+[p x WRT1  =  OFF ]
+"20
+[p x WRT2  =  OFF ]
+"21
+[p x WRT3  =  OFF ]
+"22
+[p x CP0  =  OFF ]
+"23
+[p x CP1  =  OFF ]
+"24
+[p x CP2  =  OFF ]
+"25
+[p x CP3  =  OFF ]
 "11 Prog_EAD.c
 [; ;Prog_EAD.c: 11: int P=0,P1,P2,U = 0,T = 0;
 [v _P `i ~T0 @X0 1 e ]

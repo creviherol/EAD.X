@@ -1,34 +1,14 @@
-// ===========================================
-// CONFIGURAÇÃO DO PIC
-// ===========================================
-#pragma config OSC = HS
-#pragma config WDT = OFF
-#pragma config PWRT = ON
-#pragma config BOREN = ON
-#pragma config LVP = OFF
-#pragma config PBADEN = OFF
-#pragma config MCLRE = ON
-#pragma config DEBUG = OFF
-#pragma config STVREN = ON
-#pragma config WRT0 = OFF
-#pragma config WRT1 = OFF
-#pragma config WRT2 = OFF
-#pragma config WRT3 = OFF
-#pragma config CP0 = OFF
-#pragma config CP1 = OFF
-#pragma config CP2 = OFF
-#pragma config CP3 = OFF
-#define _XTAL_FREQ 8000000UL  // Frequência do cristal
-
+#include "Bib_CONFG_PIC18F4520.h"
 
 // ===========================================
 // ENDEREÇO I2C DO MÓDULO
 // ===========================================
-#define LCD_ADDR 0x27
+#define LCD_ADDR 0x27 //define o endereço I²C do módulo PCF8574 (com três linhas de endereço em 1). Quando transmitido em modo write, o firmware desloca esse endereço (<<?1).
 
 // ===========================================
 // MAPA DE PINOS DO PCF8574 ? LCD
 // ===========================================
+//Máscaras correspondentes aos bits que controlam o registrador RS, RW, Enable e a luz de fundo no expansor I/O.
 #define PCF_RS 0x01
 #define PCF_RW 0x02
 #define PCF_EN 0x04
@@ -37,6 +17,7 @@
 // ===========================================
 // PROTÓTIPOS DAS FUNÇÕES
 // ===========================================
+//As declarações garantem que o compilador conheça todas as rotinas de I²C e LCD antes de usá-las, mantendo a estrutura organizada.
 void I2C_Init(void);
 void I2C_Start(void);
 void I2C_Stop(void);
@@ -55,29 +36,35 @@ void LCD_EnablePulse(uint8_t data);
 // I2C
 // ===========================================
 void I2C_Init(void) {
+    //configura o módulo MSSP em modo master (SSPCON1=0x28), zera SSPCON2/SSPSTAT, define SSPADD para gerar 100?kHz ((Fosc/4)/100kHz - 1), e põe RC3/RC4 como entradas 
+    //(open-drain requer resistores pull-up externos).
     SSPCON1 = 0b00101000; // Master mode
     SSPCON2 = 0x00;
     SSPADD = ((_XTAL_FREQ / 4) / 100000) - 1; // 100 kHz
     SSPSTAT = 0x00;
     TRISC3 = 1;  // SCL
     TRISC4 = 1;  // SDA
+    //Datasheet: seção MSSP I²C Master Mode descreve os bits SSPCON1<3:0> para 1000 (I²C Master) e a fórmula do baud rate.
 }
 
-void I2C_Start(void) {
-    SSPCON2bits.SEN = 1;
+void I2C_Start(void) {      //aguarda o hardware limpar o bit após transmitir a condição START.
+    SSPCON2bits.SEN = 1;    //SEN (Start Enable)
     while(SSPCON2bits.SEN);
 }
 
-void I2C_Stop(void) {
+void I2C_Stop(void) {       //aguarda o hardware limpar o bit após transmitir a condição STOP.
     SSPCON2bits.PEN = 1;
     while(SSPCON2bits.PEN);
 }
 
-void I2C_Write(uint8_t data) {
+void I2C_Write(uint8_t data) {  
+    //coloca o byte em SSPBUF, espera o buffer esvaziar (BF=0) e aguarda qualquer operação pendente em SSPCON2 (bits ACKEN, RCEN etc.); 
+    //isso garante que o byte foi enviado e que a etapa de acknowledge terminou.
     SSPBUF = data;
     while(SSPSTATbits.BF);       // espera o buffer ser enviado
     while(SSPCON2 & 0x1F);       // espera flags de transmissão
 }
+
 
 // ===========================================
 // LCD via PCF8574
