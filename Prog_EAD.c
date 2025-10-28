@@ -8,12 +8,12 @@
 #include "Bib_CONFG_PIC18F4520.h"
 
 
-int P=0,P1,P2,U = 0,T = 0;
+int P=0,P1,P2,U = 0,T = 0,O=0,O1,T1;
 char texto1[16],texto2[16];
     
 void buzzer(int D,int P);
 void Escolha();
-void BC4();
+void BC4(int O,int T1,int O1,int T, int P1, int P2);
 
 void buzzer(int D,int P){
     if (D<P){
@@ -46,7 +46,9 @@ void Escolha(){
         if (P2==999){
             P2=0;
             T=0;
-            BC4();
+            T1=30;
+            O1=1;      
+            BC4(O,T1,O1,T,P1,P2);
             U=0;
         }
         

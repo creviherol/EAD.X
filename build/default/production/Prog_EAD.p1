@@ -224,8 +224,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;C:\Program Files\Microchip\xc8\v3.00\pic\include\proc/pic18f4520.h: 495: extern volatile PORTCbits_t PORTCbits __attribute__((address(0xF82)));
 [v _PORTCbits `VS22 ~T0 @X0 0 e@3970 ]
 "16 Prog_EAD.c
-[; ;Prog_EAD.c: 16: void BC4();
-[v _BC4 `(v ~T0 @X0 0 e? ]
+[; ;Prog_EAD.c: 16: void BC4(int O,int T1,int O1,int T, int P1, int P2);
+[v _BC4 `(v ~T0 @X0 0 ef6`i`i`i`i`i`i ]
 [p mainexit ]
 "4688 C:\Program Files\Microchip\xc8\v3.00\pic\include\proc/pic18f4520.h
 [; ;C:\Program Files\Microchip\xc8\v3.00\pic\include\proc/pic18f4520.h: 4688: extern volatile unsigned char ADCON1 __attribute__((address(0xFC1)));
@@ -1443,51 +1443,45 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :UE 400 ]
 }
 "2 ./C4.h
-[; ;./C4.h: 2: void BC4(){
-[v _BC4 `(v ~T0 @X0 1 ef ]
+[; ;./C4.h: 2: void BC4(int O,int T1,int O1,int T, int P1, int P2){
+[v _BC4 `(v ~T0 @X0 1 ef6`i`i`i`i`i`i ]
 {
 [e :U _BC4 ]
+[v _O `i ~T0 @X0 1 r1 ]
+[v _T1 `i ~T0 @X0 1 r2 ]
+[v _O1 `i ~T0 @X0 1 r3 ]
+[v _T `i ~T0 @X0 1 r4 ]
+[v _P1 `i ~T0 @X0 1 r5 ]
+[v _P2 `i ~T0 @X0 1 r6 ]
 [f ]
 "3
-[; ;./C4.h: 3:     int O = 0,T1 = 30,O1 = 1,T = 0,P1,P2=0;
-[v _O `i ~T0 @X0 1 a ]
-[e = _O -> 0 `i ]
-[v _T1 `i ~T0 @X0 1 a ]
-[e = _T1 -> 30 `i ]
-[v _O1 `i ~T0 @X0 1 a ]
-[e = _O1 -> 1 `i ]
-[v _T `i ~T0 @X0 1 a ]
-[e = _T -> 0 `i ]
-[v _P1 `i ~T0 @X0 1 a ]
-[v _P2 `i ~T0 @X0 1 a ]
-[e = _P2 -> 0 `i ]
-"4
-[; ;./C4.h: 4:     char texto1[16];
-[v _texto1 `uc ~T0 @X0 -> 16 `i a ]
-"6
-[; ;./C4.h: 6:     for (int i=1800;i>0;i--){
+[; ;./C4.h: 3:     char texto1[20],texto2[20];
+[v _texto1 `uc ~T0 @X0 -> 20 `i a ]
+[v _texto2 `uc ~T0 @X0 -> 20 `i a ]
+"5
+[; ;./C4.h: 5:     for (int i=900;i>0;i--){
 {
 [v _i `i ~T0 @X0 1 a ]
-[e = _i -> 1800 `i ]
+[e = _i -> 900 `i ]
 [e $ > _i -> 0 `i 408  ]
 [e $U 409  ]
 [e :U 408 ]
 {
-"7
-[; ;./C4.h: 7:         O++;
+"6
+[; ;./C4.h: 6:         O++;
 [e ++ _O -> 1 `i ]
-"8
-[; ;./C4.h: 8:         if (O==(60*O1)){
-[e $ ! == _O * -> 60 `i _O1 411  ]
+"7
+[; ;./C4.h: 7:         if (O==(30*O1)){
+[e $ ! == _O * -> 30 `i _O1 411  ]
 {
-"9
-[; ;./C4.h: 9:             O1++;
+"8
+[; ;./C4.h: 8:             O1++;
 [e ++ _O1 -> 1 `i ]
-"10
-[; ;./C4.h: 10:             T1--;
+"9
+[; ;./C4.h: 9:             T1--;
 [e -- _T1 -> 1 `i ]
-"11
-[; ;./C4.h: 11:         }
+"10
+[; ;./C4.h: 10:         }
 }
 [e :U 411 ]
 "12
@@ -1525,21 +1519,21 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e :U 412 ]
 "24
-[; ;./C4.h: 24:         sprintf(texto1, "Senha: %u        ",P2);
-[e ( _sprintf (1 , (. , &U _texto1 :s 2C _P2 ]
+[; ;./C4.h: 24:         sprintf(texto2, "Senha: %u        ",P2);
+[e ( _sprintf (1 , (. , &U _texto2 :s 2C _P2 ]
 "25
 [; ;./C4.h: 25:         LCD_SetCursor(2,1);
 [e ( _LCD_SetCursor (2 , -> -> 2 `i `uc -> -> 1 `i `uc ]
 "26
-[; ;./C4.h: 26:         LCD_String(texto1);
-[e ( _LCD_String (1 -> &U _texto1 `*Cuc ]
+[; ;./C4.h: 26:         LCD_String(texto2);
+[e ( _LCD_String (1 -> &U _texto2 `*Cuc ]
 "28
 [; ;./C4.h: 28:         if (T==3){
 [e $ ! == _T -> 3 `i 414  ]
 {
 "29
-[; ;./C4.h: 29:             if (P2==111){
-[e $ ! == _P2 -> 111 `i 415  ]
+[; ;./C4.h: 29:             if (P2==658){
+[e $ ! == _P2 -> 658 `i 415  ]
 {
 "30
 [; ;./C4.h: 30:                 i=0;
@@ -1559,22 +1553,25 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;./C4.h: 34:                 P2=0;
 [e = _P2 -> 0 `i ]
 "35
-[; ;./C4.h: 35:             }
+[; ;./C4.h: 35:                 T=0;
+[e = _T -> 0 `i ]
+"36
+[; ;./C4.h: 36:             }
 }
 [e :U 416 ]
-"36
-[; ;./C4.h: 36:         }
+"37
+[; ;./C4.h: 37:         }
 }
 [e :U 414 ]
-"37
-[; ;./C4.h: 37:     }
+"38
+[; ;./C4.h: 38:     }
 }
 [e -- _i -> 1 `i ]
 [e $ > _i -> 0 `i 408  ]
 [e :U 409 ]
 }
-"38
-[; ;./C4.h: 38: }
+"39
+[; ;./C4.h: 39: }
 [e :UE 407 ]
 }
 "4 ./Bib_CONFG_PIC18F4520.h
@@ -1612,7 +1609,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "25
 [p x CP3  =  OFF ]
 "11 Prog_EAD.c
-[; ;Prog_EAD.c: 11: int P=0,P1,P2,U = 0,T = 0;
+[; ;Prog_EAD.c: 11: int P=0,P1,P2,U = 0,T = 0,O=0,O1,T1;
 [v _P `i ~T0 @X0 1 e ]
 [i _P
 -> 0 `i
@@ -1627,6 +1624,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 [i _T
 -> 0 `i
 ]
+[v _O `i ~T0 @X0 1 e ]
+[i _O
+-> 0 `i
+]
+[v _O1 `i ~T0 @X0 1 e ]
+[v _T1 `i ~T0 @X0 1 e ]
 "12
 [; ;Prog_EAD.c: 12: char texto1[16],texto2[16];
 [v _texto1 `uc ~T0 @X0 -> 16 `i e ]
@@ -1730,138 +1733,144 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;Prog_EAD.c: 48:             T=0;
 [e = _T -> 0 `i ]
 "49
-[; ;Prog_EAD.c: 49:             BC4();
-[e ( _BC4 ..  ]
+[; ;Prog_EAD.c: 49:             T1=30;
+[e = _T1 -> 30 `i ]
 "50
-[; ;Prog_EAD.c: 50:             U=0;
-[e = _U -> 0 `i ]
+[; ;Prog_EAD.c: 50:             O1=1;
+[e = _O1 -> 1 `i ]
 "51
-[; ;Prog_EAD.c: 51:         }
+[; ;Prog_EAD.c: 51:             BC4(O,T1,O1,T,P1,P2);
+[e ( _BC4 (4 , , , , , _O _T1 _O1 _T _P1 _P2 ]
+"52
+[; ;Prog_EAD.c: 52:             U=0;
+[e = _U -> 0 `i ]
+"53
+[; ;Prog_EAD.c: 53:         }
 }
 [e :U 426 ]
-"53
-[; ;Prog_EAD.c: 53:         if (P1==11){
+"55
+[; ;Prog_EAD.c: 55:         if (P1==11){
 [e $ ! == _P1 -> 11 `i 427  ]
 {
-"54
-[; ;Prog_EAD.c: 54:             U=0;
-[e = _U -> 0 `i ]
-"55
-[; ;Prog_EAD.c: 55:             P = P2;
-[e = _P _P2 ]
 "56
-[; ;Prog_EAD.c: 56:         }
+[; ;Prog_EAD.c: 56:             U=0;
+[e = _U -> 0 `i ]
+"57
+[; ;Prog_EAD.c: 57:             P = P2;
+[e = _P _P2 ]
+"58
+[; ;Prog_EAD.c: 58:         }
 }
 [e :U 427 ]
-"57
-[; ;Prog_EAD.c: 57:     }
+"59
+[; ;Prog_EAD.c: 59:     }
 }
 [e :U 421 ]
 "29
 [; ;Prog_EAD.c: 29:     while(U){
 [e $ != _U -> 0 `i 422  ]
 [e :U 423 ]
-"58
-[; ;Prog_EAD.c: 58: }
+"60
+[; ;Prog_EAD.c: 60: }
 [e :UE 420 ]
 }
 [v $root$_main `(v ~T0 @X0 0 e ]
-"63
-[; ;Prog_EAD.c: 63: void main(void) {
+"65
+[; ;Prog_EAD.c: 65: void main(void) {
 [v _main `(v ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
-"64
-[; ;Prog_EAD.c: 64:     I2C_Init();
-[e ( _I2C_Init ..  ]
-"65
-[; ;Prog_EAD.c: 65:     LCD_Init();
-[e ( _LCD_Init ..  ]
 "66
-[; ;Prog_EAD.c: 66:     Ultrasonic_Init();
-[e ( _Ultrasonic_Init ..  ]
+[; ;Prog_EAD.c: 66:     I2C_Init();
+[e ( _I2C_Init ..  ]
 "67
-[; ;Prog_EAD.c: 67:     ADCON1 = 15;
-[e = _ADCON1 -> -> 15 `i `uc ]
+[; ;Prog_EAD.c: 67:     LCD_Init();
+[e ( _LCD_Init ..  ]
 "68
-[; ;Prog_EAD.c: 68:     TRISB = 0b11110000;
-[e = _TRISB -> -> 240 `i `uc ]
+[; ;Prog_EAD.c: 68:     Ultrasonic_Init();
+[e ( _Ultrasonic_Init ..  ]
 "69
-[; ;Prog_EAD.c: 69:     TRISCbits.TRISC1=0;
-[e = . . _TRISCbits 0 1 -> -> 0 `i `uc ]
+[; ;Prog_EAD.c: 69:     ADCON1 = 15;
+[e = _ADCON1 -> -> 15 `i `uc ]
 "70
-[; ;Prog_EAD.c: 70:     LATB = 0x0F;
-[e = _LATB -> -> 15 `i `uc ]
+[; ;Prog_EAD.c: 70:     TRISB = 0b11110000;
+[e = _TRISB -> -> 240 `i `uc ]
 "71
-[; ;Prog_EAD.c: 71:     INTCON2bits.RBPU = 0;
+[; ;Prog_EAD.c: 71:     TRISCbits.TRISC1=0;
+[e = . . _TRISCbits 0 1 -> -> 0 `i `uc ]
+"72
+[; ;Prog_EAD.c: 72:     LATB = 0x0F;
+[e = _LATB -> -> 15 `i `uc ]
+"73
+[; ;Prog_EAD.c: 73:     INTCON2bits.RBPU = 0;
 [e = . . _INTCON2bits 2 1 -> -> 0 `i `uc ]
-"74
-[; ;Prog_EAD.c: 74:     while(1) {
+"76
+[; ;Prog_EAD.c: 76:     while(1) {
 [e :U 430 ]
 {
-"75
-[; ;Prog_EAD.c: 75:         unsigned int dist = Ultrasonic_Read();
+"77
+[; ;Prog_EAD.c: 77:         unsigned int dist = Ultrasonic_Read();
 [v _dist `ui ~T0 @X0 1 a ]
 [e = _dist -> ( _Ultrasonic_Read ..  `ui ]
-"77
-[; ;Prog_EAD.c: 77:         P1 = varredura();
-[e = _P1 ( _varredura ..  ]
 "79
-[; ;Prog_EAD.c: 79:         if (P1==10){
+[; ;Prog_EAD.c: 79:         P1 = varredura();
+[e = _P1 ( _varredura ..  ]
+"81
+[; ;Prog_EAD.c: 81:         if (P1==10){
 [e $ ! == _P1 -> 10 `i 432  ]
 {
-"80
-[; ;Prog_EAD.c: 80:             U=1;
-[e = _U -> 1 `i ]
-"81
-[; ;Prog_EAD.c: 81:             P2=0;
-[e = _P2 -> 0 `i ]
 "82
-[; ;Prog_EAD.c: 82:             T=0;
-[e = _T -> 0 `i ]
+[; ;Prog_EAD.c: 82:             U=1;
+[e = _U -> 1 `i ]
 "83
-[; ;Prog_EAD.c: 83:             PORTCbits.RC1 = 0;
-[e = . . _PORTCbits 0 1 -> -> 0 `i `uc ]
+[; ;Prog_EAD.c: 83:             P2=0;
+[e = _P2 -> 0 `i ]
 "84
-[; ;Prog_EAD.c: 84:             Escolha();
-[e ( _Escolha ..  ]
+[; ;Prog_EAD.c: 84:             T=0;
+[e = _T -> 0 `i ]
 "85
-[; ;Prog_EAD.c: 85:         }
+[; ;Prog_EAD.c: 85:             PORTCbits.RC1 = 0;
+[e = . . _PORTCbits 0 1 -> -> 0 `i `uc ]
+"86
+[; ;Prog_EAD.c: 86:             Escolha();
+[e ( _Escolha ..  ]
+"87
+[; ;Prog_EAD.c: 87:         }
 }
 [e :U 432 ]
-"87
-[; ;Prog_EAD.c: 87:         buzzer(dist,P);
-[e ( _buzzer (2 , -> _dist `i _P ]
-"88
-[; ;Prog_EAD.c: 88:         _delay((unsigned long)((200)*(8000000UL/4000.0)));
-[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 8000000 `ul `d .4000.0 `ul ]
 "89
-[; ;Prog_EAD.c: 89:         sprintf(texto1, "Dist: %u cm     ", dist);
-[e ( _sprintf (1 , (. , &U _texto1 :s 5C _dist ]
+[; ;Prog_EAD.c: 89:         buzzer(dist,P);
+[e ( _buzzer (2 , -> _dist `i _P ]
 "90
-[; ;Prog_EAD.c: 90:         LCD_SetCursor(1,1);
-[e ( _LCD_SetCursor (2 , -> -> 1 `i `uc -> -> 1 `i `uc ]
+[; ;Prog_EAD.c: 90:         _delay((unsigned long)((200)*(8000000UL/4000.0)));
+[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 8000000 `ul `d .4000.0 `ul ]
 "91
-[; ;Prog_EAD.c: 91:         LCD_String(texto1);
-[e ( _LCD_String (1 -> &U _texto1 `*Cuc ]
+[; ;Prog_EAD.c: 91:         sprintf(texto1, "Dist: %u cm     ", dist);
+[e ( _sprintf (1 , (. , &U _texto1 :s 5C _dist ]
 "92
-[; ;Prog_EAD.c: 92:         sprintf(texto2, "Dist/Detec: %u      ", P);
-[e ( _sprintf (1 , (. , &U _texto2 :s 6C _P ]
+[; ;Prog_EAD.c: 92:         LCD_SetCursor(1,1);
+[e ( _LCD_SetCursor (2 , -> -> 1 `i `uc -> -> 1 `i `uc ]
 "93
-[; ;Prog_EAD.c: 93:         LCD_SetCursor(2,1);
-[e ( _LCD_SetCursor (2 , -> -> 2 `i `uc -> -> 1 `i `uc ]
+[; ;Prog_EAD.c: 93:         LCD_String(texto1);
+[e ( _LCD_String (1 -> &U _texto1 `*Cuc ]
 "94
-[; ;Prog_EAD.c: 94:         LCD_String(texto2);
-[e ( _LCD_String (1 -> &U _texto2 `*Cuc ]
+[; ;Prog_EAD.c: 94:         sprintf(texto2, "Dist/Detec: %u      ", P);
+[e ( _sprintf (1 , (. , &U _texto2 :s 6C _P ]
+"95
+[; ;Prog_EAD.c: 95:         LCD_SetCursor(2,1);
+[e ( _LCD_SetCursor (2 , -> -> 2 `i `uc -> -> 1 `i `uc ]
 "96
-[; ;Prog_EAD.c: 96:     }
+[; ;Prog_EAD.c: 96:         LCD_String(texto2);
+[e ( _LCD_String (1 -> &U _texto2 `*Cuc ]
+"98
+[; ;Prog_EAD.c: 98:     }
 }
 [e :U 429 ]
 [e $U 430  ]
 [e :U 431 ]
-"97
-[; ;Prog_EAD.c: 97: }
+"99
+[; ;Prog_EAD.c: 99: }
 [e :UE 428 ]
 }
 [p f _sprintf 8389632 ]

@@ -5231,16 +5231,16 @@ double Ultrasonic_Read(void){
 # 7 "Prog_EAD.c" 2
 # 1 "./C4.h" 1
 
-void BC4(){
-    int O = 0,T1 = 30,O1 = 1,T = 0,P1,P2=0;
-    char texto1[16];
+void BC4(int O,int T1,int O1,int T, int P1, int P2){
+    char texto1[20],texto2[20];
 
-    for (int i=1800;i>0;i--){
+    for (int i=900;i>0;i--){
         O++;
-        if (O==(60*O1)){
+        if (O==(30*O1)){
             O1++;
             T1--;
         }
+
         sprintf(texto1, "Tempo: %u         ",T1);
         LCD_SetCursor(1,1);
         LCD_String(texto1);
@@ -5253,17 +5253,18 @@ void BC4(){
             }
         }
 
-        sprintf(texto1, "Senha: %u        ",P2);
+        sprintf(texto2, "Senha: %u        ",P2);
         LCD_SetCursor(2,1);
-        LCD_String(texto1);
+        LCD_String(texto2);
 
         if (T==3){
-            if (P2==111){
+            if (P2==658){
                 i=0;
                 T=0;
             }
             else{
                 P2=0;
+                T=0;
             }
         }
     }
@@ -5298,12 +5299,12 @@ void BC4(){
 # 9 "Prog_EAD.c" 2
 
 
-int P=0,P1,P2,U = 0,T = 0;
+int P=0,P1,P2,U = 0,T = 0,O=0,O1,T1;
 char texto1[16],texto2[16];
 
 void buzzer(int D,int P);
 void Escolha();
-void BC4();
+void BC4(int O,int T1,int O1,int T, int P1, int P2);
 
 void buzzer(int D,int P){
     if (D<P){
@@ -5336,7 +5337,9 @@ void Escolha(){
         if (P2==999){
             P2=0;
             T=0;
-            BC4();
+            T1=30;
+            O1=1;
+            BC4(O,T1,O1,T,P1,P2);
             U=0;
         }
 

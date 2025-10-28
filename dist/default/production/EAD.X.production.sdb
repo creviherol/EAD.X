@@ -83,7 +83,7 @@
 [v _buzzer buzzer `(v  1 e 1 0 ]
 "28
 [v _Escolha Escolha `(v  1 e 1 0 ]
-"63
+"65
 [v _main main `(v  1 e 1 0 ]
 [s S64 . 1 `uc 1 RB0 1 0 :1:0 
 `uc 1 RB1 1 0 :1:1 
@@ -331,11 +331,11 @@
 [v _T1CON T1CON `VEuc  1 e 1 @4045 ]
 "5631
 [v _TMR1 TMR1 `VEus  1 e 2 @4046 ]
-[s S516 . 1 `uc 1 . 1 0 :7:0 
+[s S522 . 1 `uc 1 . 1 0 :7:0 
 `uc 1 NOT_RBPU 1 0 :1:7 
 ]
 "6645
-[s S519 . 1 `uc 1 RBIP 1 0 :1:0 
+[s S525 . 1 `uc 1 RBIP 1 0 :1:0 
 `uc 1 . 1 0 :1:1 
 `uc 1 TMR0IP 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
@@ -344,11 +344,11 @@
 `uc 1 INTEDG0 1 0 :1:6 
 `uc 1 nRBPU 1 0 :1:7 
 ]
-[s S528 . 1 `uc 1 . 1 0 :7:0 
+[s S534 . 1 `uc 1 . 1 0 :7:0 
 `uc 1 RBPU 1 0 :1:7 
 ]
-[u S531 . 1 `S516 1 . 1 0 `S519 1 . 1 0 `S528 1 . 1 0 ]
-[v _INTCON2bits INTCON2bits `VES531  1 e 1 @4081 ]
+[u S537 . 1 `S522 1 . 1 0 `S525 1 . 1 0 `S534 1 . 1 0 ]
+[v _INTCON2bits INTCON2bits `VES537  1 e 1 @4081 ]
 "8796
 [v _TRISC3 TRISC3 `VEb  1 e 0 @31907 ]
 "8799
@@ -366,15 +366,17 @@
 [v _P2 P2 `i  1 e 2 0 ]
 [v _U U `i  1 e 2 0 ]
 [v _T T `i  1 e 2 0 ]
+[v _O1 O1 `i  1 e 2 0 ]
+[v _T1 T1 `i  1 e 2 0 ]
 "12
 [v _texto1 texto1 `[16]uc  1 e 16 0 ]
 [v _texto2 texto2 `[16]uc  1 e 16 0 ]
-"63
+"65
 [v _main main `(v  1 e 1 0 ]
 {
-"75
-[v main@dist dist `ui  1 a 2 81 ]
-"97
+"77
+[v main@dist dist `ui  1 a 2 102 ]
+"99
 } 0
 "18
 [v _buzzer buzzer `(v  1 e 1 0 ]
@@ -456,17 +458,17 @@
 "8 C:\Program Files\Microchip\xc8\v3.00\pic\sources\c99\common\sprcmul.c
 [v ___flmul __flmul `(d  1 e 4 0 ]
 {
-[s S997 . 4 `uc 1 a 1 0 `uc 1 b 1 1 `uc 1 c 1 2 `uc 1 d 1 3 ]
+[s S1007 . 4 `uc 1 a 1 0 `uc 1 b 1 1 `uc 1 c 1 2 `uc 1 d 1 3 ]
 "13
-[s S1002 . 4 `s 1 wordA 2 0 `s 1 wordB 2 2 ]
-[u S1005 . 4 `l 1 i 4 0 `d 1 f 4 0 `S997 1 fAsBytes 4 0 `S1002 1 fAsWords 4 0 ]
-[v ___flmul@prod prod `S1005  1 a 4 43 ]
+[s S1012 . 4 `s 1 wordA 2 0 `s 1 wordB 2 2 ]
+[u S1015 . 4 `l 1 i 4 0 `d 1 f 4 0 `S1007 1 fAsBytes 4 0 `S1012 1 fAsWords 4 0 ]
+[v ___flmul@prod prod `S1015  1 a 4 43 ]
 "12
 [v ___flmul@grs grs `ul  1 a 4 37 ]
-[s S1073 . 2 `uc 1 a 1 0 `uc 1 b 1 1 ]
+[s S1083 . 2 `uc 1 a 1 0 `uc 1 b 1 1 ]
 "14
-[u S1076 . 2 `s 1 i 2 0 `us 1 n 2 0 `S1073 1 nAsBytes 2 0 ]
-[v ___flmul@temp temp `S1076  1 a 2 47 ]
+[u S1086 . 2 `s 1 i 2 0 `us 1 n 2 0 `S1083 1 nAsBytes 2 0 ]
+[v ___flmul@temp temp `S1086  1 a 2 47 ]
 "10
 [v ___flmul@bexp bexp `uc  1 a 1 42 ]
 "11
@@ -496,23 +498,24 @@
 "28 C:\Users\Santi\OneDrive\Documentos\Transferencia\Transferencia\facudade\Oitavo-Periodo\Sistemas-Embarcados\Teorica\EAD\EAD.X\Prog_EAD.c
 [v _Escolha Escolha `(v  1 e 1 0 ]
 {
-"58
+"60
 } 0
 "2 C:\Users\Santi\OneDrive\Documentos\Transferencia\Transferencia\facudade\Oitavo-Periodo\Sistemas-Embarcados\Teorica\EAD\EAD.X/C4.h
 [v _BC4 BC4 `(v  1 e 1 0 ]
 {
-"6
-[v BC4@i i `i  1 a 2 64 ]
-"4
-[v BC4@texto1 texto1 `[16]uc  1 a 16 40 ]
+"5
+[v BC4@i i `i  1 a 2 92 ]
 "3
-[v BC4@P2 P2 `i  1 a 2 68 ]
-[v BC4@P1 P1 `i  1 a 2 66 ]
-[v BC4@T T `i  1 a 2 62 ]
-[v BC4@O1 O1 `i  1 a 2 60 ]
-[v BC4@T1 T1 `i  1 a 2 58 ]
-[v BC4@O O `i  1 a 2 56 ]
-"38
+[v BC4@texto2 texto2 `[20]uc  1 a 20 72 ]
+[v BC4@texto1 texto1 `[20]uc  1 a 20 52 ]
+"2
+[v BC4@O O `i  1 p 2 38 ]
+[v BC4@T1 T1 `i  1 p 2 40 ]
+[v BC4@O1 O1 `i  1 p 2 42 ]
+[v BC4@T T `i  1 p 2 44 ]
+[v BC4@P1 P1 `i  1 p 2 46 ]
+[v BC4@P2 P2 `i  1 p 2 48 ]
+"39
 } 0
 "14 C:\Users\Santi\OneDrive\Documentos\Transferencia\Transferencia\facudade\Oitavo-Periodo\Sistemas-Embarcados\Teorica\EAD\EAD.X/bib_TECLADO.h
 [v _varredura varredura `(i  1 e 2 0 ]
@@ -524,10 +527,10 @@
 "9 C:\Program Files\Microchip\xc8\v3.00\pic\sources\c99\common\nf_sprintf.c
 [v _sprintf sprintf `(i  1 e 2 0 ]
 {
-[u S1132 . 2 `*.30uc 1 buffer 1 0 `*.39Cuc 1 source 2 0 ]
+[u S1142 . 2 `*.30uc 1 buffer 1 0 `*.39Cuc 1 source 2 0 ]
 "13
-[s S1135 _IO_FILE 11 `S1132 1 . 2 0 `i 1 count 2 2 `[3]uc 1 ungetbuf 3 4 `i 1 ungetcnt 2 7 `i 1 limit 2 9 ]
-[v sprintf@f f `S1135  1 a 11 27 ]
+[s S1145 _IO_FILE 11 `S1142 1 . 2 0 `i 1 count 2 2 `[3]uc 1 ungetbuf 3 4 `i 1 ungetcnt 2 7 `i 1 limit 2 9 ]
+[v sprintf@f f `S1145  1 a 11 27 ]
 "12
 [v sprintf@ap ap `[1]*.30v  1 a 1 26 ]
 "9
@@ -540,9 +543,9 @@
 {
 "1820
 [v vfprintf@cfmt cfmt `*.31uc  1 a 1 21 ]
-[s S1167 _IO_FILE 0 ]
+[s S1177 _IO_FILE 0 ]
 "1817
-[v vfprintf@fp fp `*.30S1167  1 p 1 18 ]
+[v vfprintf@fp fp `*.30S1177  1 p 1 18 ]
 [v vfprintf@fmt fmt `*.31Cuc  1 p 1 19 ]
 [v vfprintf@ap ap `*.30*.30v  1 p 1 20 ]
 "1840
@@ -550,15 +553,15 @@
 "1177
 [v _vfpfcnvrt vfpfcnvrt `(v  1 s 1 vfpfcnvrt ]
 {
-[u S1180 . 4 `i 1 sint 2 0 `ui 1 uint 2 0 `d 1 f 4 0 ]
+[u S1190 . 4 `i 1 sint 2 0 `ui 1 uint 2 0 `d 1 f 4 0 ]
 "1188
-[v vfpfcnvrt@convarg convarg `S1180  1 a 4 12 ]
+[v vfpfcnvrt@convarg convarg `S1190  1 a 4 12 ]
 "1179
 [v vfpfcnvrt@c c `uc  1 a 1 17 ]
 [v vfpfcnvrt@cp cp `*.31uc  1 a 1 16 ]
-[s S1167 _IO_FILE 0 ]
+[s S1177 _IO_FILE 0 ]
 "1177
-[v vfpfcnvrt@fp fp `*.30S1167  1 p 1 8 ]
+[v vfpfcnvrt@fp fp `*.30S1177  1 p 1 8 ]
 [v vfpfcnvrt@fmt fmt `*.30*.31uc  1 p 1 9 ]
 [v vfpfcnvrt@ap ap `*.30*.30v  1 p 1 10 ]
 "1814
@@ -567,9 +570,9 @@
 [v _fputc fputc `(i  1 e 2 0 ]
 {
 [v fputc@c c `i  1 p 2 0 ]
-[u S1132 . 2 `*.30uc 1 buffer 1 0 `*.39Cuc 1 source 2 0 ]
-[s S1135 _IO_FILE 11 `S1132 1 . 2 0 `i 1 count 2 2 `[3]uc 1 ungetbuf 3 4 `i 1 ungetcnt 2 7 `i 1 limit 2 9 ]
-[v fputc@fp fp `*.30S1135  1 p 1 2 ]
+[u S1142 . 2 `*.30uc 1 buffer 1 0 `*.39Cuc 1 source 2 0 ]
+[s S1145 _IO_FILE 11 `S1142 1 . 2 0 `i 1 count 2 2 `[3]uc 1 ungetbuf 3 4 `i 1 ungetcnt 2 7 `i 1 limit 2 9 ]
+[v fputc@fp fp `*.30S1145  1 p 1 2 ]
 "24
 } 0
 "7 C:\Program Files\Microchip\xc8\v3.00\pic\sources\c99\common\putch.c

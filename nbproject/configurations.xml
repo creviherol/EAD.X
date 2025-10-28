@@ -13,7 +13,6 @@
                    displayName="Source Files"
                    projectFiles="true">
       <itemPath>Prog_EAD.c</itemPath>
-      <itemPath>bib_CFG_18F4520.h</itemPath>
       <itemPath>bib_LCD.h</itemPath>
       <itemPath>bib_TECLADO.h</itemPath>
       <itemPath>bib_Ultrasonico.h</itemPath>
